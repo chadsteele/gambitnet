@@ -7,14 +7,14 @@ Peer-to-peer chess tournaments with no central server, where every piece is an A
 >
 > Every pawn has a plan.
 
-GambitNet is an open-source Chrome extension that turns a browser into a distributed peer-to-peer chess laboratory. Sixteen independent piece agents form a team, argue about who should move, and learn from the consequences.
+GambitNet is an open-source browser chess laboratory. GitHub Pages hosts the marketing site, while the Netlify app owns the dashboard, game workers, local storage, and team experience. A deliberately thin Chrome extension only bridges the app to supported, already-authenticated LLM web sessions.
 
 Are you a developer? [Jump to the developer guide.](#for-developers)
 
 
 [Visit the GambitNet project page](https://chadsteele.github.io/gambitnet/)
 
-[Open the Team Lab](https://chadsteele.github.io/gambitnet/team-lab.html) to create, tune, and monitor your teams in the browser.
+[Open GambitNet Club](https://gambitnet.club/) to create, tune, and monitor your teams in the browser.
 
 ## For Chess Players
 
@@ -30,8 +30,8 @@ There is no subscription, no API token, and no engine score to chase. The rules 
 
 ### Getting started
 
-1. Install GambitNet from the Chrome Web Store when the public build launches, or download the repository and load `apps/extension/dist` as an unpacked extension at `chrome://extensions`.
-2. Open the dashboard and choose a first-run preset: **Immortal Pawns**, **Fortress**, or **Tricksters**.
+1. Download the repository and load `extension/dist` as an unpacked extension at `chrome://extensions`.
+2. Open [GambitNet Club](https://gambitnet.club/) and configure a local team.
 3. Give your team a name. Tune pieces with motivation sliders and short personality prompts. A quiet bishop and a reckless knight make very different teammates.
 4. Enter the team into the local arena. Bot teams fill open seats so matches keep moving when other humans are away.
 5. Watch the live signal feed, then open the board view to spectate moves as they happen.
@@ -61,7 +61,7 @@ A team becomes eligible for a peer-to-peer tournament when it reaches your confi
 
 ### FAQ
 
-**Do I need to keep the dashboard tab open?** The service worker and game workers can keep matches alive, but keeping the dashboard open gives you live progress and a reliable keep-alive port. The extension rebuilds active-game state after a service-worker restart.
+**What does the extension do?** It is only a bridge. The Svelte app on Netlify owns the game experience, workers, and local data; the extension routes prompts and responses between that app and LLM web pages.
 
 **What about my LLM logins?** They are optional. If you open a supported Gemini, Claude, GPT, Qwen, or DeepSeek web tab and are already signed in, the content bridge can send prompts through that interface. GambitNet does not ask for API tokens. The local fallback keeps matches playable without an LLM tab.
 
@@ -105,18 +105,17 @@ Requirements: Node.js 22 and pnpm 9.
 git clone https://github.com/gambitnet/gambitnet.git
 cd gambitnet
 pnpm install
-pnpm build:packages
 pnpm build
 ```
 
-Or run `./scripts/setup-dev.sh` from a parent directory. Start the signaling service separately with `pnpm signaling` when testing peer handshakes. Load `apps/extension/dist` unpacked in Chrome.
+Load `extension/dist` unpacked in Chrome. Start the signaling service separately with `pnpm signaling` when testing peer handshakes.
 
 ### Project structure
 
 ```text
-apps/extension/       Manifest V3 UI, service worker, content bridge, game workers
+extension/            Minimal Manifest V3 LLM bridge
 apps/signaling-server Minimal WebSocket room relay for SDP and ICE exchange
-apps/dashboard-site   Small public landing/dashboard shell
+web/                  Svelte Netlify dashboard and Team Lab
 packages/chess-core   chess.js wrapper and legality boundary
 packages/piece-agent  Prompt construction, context, motivation parsing
 packages/team-runtime Turn selection and match helpers
@@ -143,19 +142,18 @@ pnpm build
 
 ### Architecture
 
-GambitNet is a local-first multi-agent system. The extension owns orchestration, IndexedDB owns durable piece memories, and GunDB/WebRTC are optional peer transport layers.
+GambitNet is a local-first multi-agent system. The Svelte app owns orchestration, game workers, and local persistence. The extension has no chess logic or application database; it only routes browser-page LLM traffic.
 
 ```mermaid
 flowchart LR
-  Player[Chess player] --> Dashboard[Chrome dashboard]
-  Dashboard --> SW[Manifest V3 service worker]
-  SW --> Workers[One Web Worker per arena]
+  Player[Chess player] --> Dashboard[Svelte Netlify app]
+  Dashboard --> Workers[Game workers]
   Workers --> Agents[32 piece agents]
   Agents --> Rules[chess.js legality]
-  Agents --> LLM[Optional LLM browser tabs]
-  Workers --> Local[IndexedDB piece memory]
-  SW --> Settings[chrome.storage.local]
-  SW --> Gun[GunDB peer sync]
+  Dashboard --> Local[IndexedDB and localStorage]
+  Dashboard --> Bridge[Thin Chrome bridge]
+  Bridge --> LLM[Optional LLM browser pages]
+  Dashboard --> Gun[GunDB peer sync]
   Gun --> RTC[WebRTC tournament data channel]
   RTC --> Peer[Another volunteer browser]
 ```
@@ -213,9 +211,9 @@ package.json, pnpm-workspace.yaml
 .github/ISSUE_TEMPLATE/feature_request.yml
 .github/PULL_REQUEST_TEMPLATE.md
 .github/workflows/ci.yml
-apps/extension/{manifest.json,vite.config.ts,src/...}
+extension/{manifest.json,bridge.html,background,content,rules}
 apps/signaling-server/{package.json,src/index.ts}
-apps/dashboard-site/{package.json,index.html}
+web/{package.json,index.html,src/...}
 packages/{chess-core,piece-agent,team-runtime,evolution,bot-teams,shared-types}/...
 docs/{ARCHITECTURE,PIECE_PROTOCOL,TUNING_GUIDE,CHESS_EDUCATION}.md
 scripts/setup-dev.sh

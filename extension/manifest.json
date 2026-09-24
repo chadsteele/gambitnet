@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "GambitNet Bridge",
+  "version": "0.1.0",
+  "description": "Bridges the GambitNet dashboard to free LLM web interfaces.",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "permissions": ["declarativeNetRequest", "declarativeNetRequestWithHostAccess", "tabs"],
+  "host_permissions": ["https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*", "https://chat.qwen.ai/*", "https://chat.deepseek.com/*"],
+  "background": { "service_worker": "background/service-worker.js" },
+  "action": { "default_title": "GambitNet Bridge", "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png" } },
+  "externally_connectable": { "matches": ["https://chadsteele.github.io/*"] },
+  "content_scripts": [
+    { "matches": ["https://chadsteele.github.io/gambitnet/*"], "js": ["content/dashboard-bridge.js"], "run_at": "document_start" },
+    { "matches": ["https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*", "https://chat.qwen.ai/*", "https://chat.deepseek.com/*"], "js": ["content/llm-scraper.js"], "run_at": "document_idle", "all_frames": true }
+  ],
+  "declarative_net_request": { "rule_resources": [{ "id": "strip-framing", "enabled": true, "path": "rules/strip-framing.json" }] },
+  "web_accessible_resources": [{ "resources": ["bridge.html", "bridge.js"], "matches": ["https://chadsteele.github.io/*"] }]
+}

@@ -1,3 +1,6 @@
 packages:
-  - apps/*
+  - web
+  - extension
+  - apps/dashboard-site
+  - apps/signaling-server
   - packages/*

@@ -6,10 +6,11 @@
   "license": "MIT",
   "packageManager": "pnpm@9.15.0",
   "scripts": {
-    "build": "pnpm build:packages && pnpm --filter @gambitnet/extension build",
+    "build": "pnpm build:packages && pnpm --filter @gambitnet/bridge-extension build && pnpm build:web",
     "build:packages": "pnpm -r --filter './packages/*' build",
     "build:site": "pnpm --filter @gambitnet/dashboard-site build",
-    "dev": "pnpm --filter @gambitnet/extension dev",
+    "build:web": "pnpm --filter @gambitnet/web build",
+    "dev": "pnpm --filter @gambitnet/web dev",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",

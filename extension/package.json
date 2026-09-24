@@ -1,0 +1,1 @@
+{"name":"@gambitnet/bridge-extension","version":"0.1.0","private":true,"scripts":{"build":"rm -rf dist && mkdir -p dist && cp -R manifest.json bridge.html bridge.js content background rules icons dist/"}}
