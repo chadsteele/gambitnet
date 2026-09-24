@@ -1,5 +1,11 @@
 export type Color = 'w' | 'b';
 export type PieceRole = 'p' | 'n' | 'b' | 'r' | 'q' | 'k';
+export type MatchOutcome = 'win' | 'loss' | 'draw';
+
+export interface QualificationConfig {
+  winsRequired: number;
+  gamesWindow: number;
+}
 
 export interface PieceIdentity {
   id: string;
@@ -38,6 +44,8 @@ export interface TeamConfig {
   kind: 'human' | 'bot';
   pieces: Record<string, { personality: string; motivationBias: number }>;
   consecutiveWins: number;
+  qualification?: QualificationConfig;
+  recentResults?: MatchOutcome[];
 }
 
 export interface MatchResult {

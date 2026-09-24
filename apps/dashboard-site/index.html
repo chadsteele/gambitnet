@@ -1,1 +1,74 @@
-<html><head><title>GambitNet dashboard</title></head><body><main><h1>GambitNet</h1><p>The peer-to-peer chess laboratory is local-first. Install the extension to enter the arena.</p></main></body></html>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="GambitNet is a peer-to-peer chess laboratory where independent piece minds evolve to win." />
+		<meta name="theme-color" content="#f4efe5" />
+		<title>GambitNet | Every pawn has a plan</title>
+		<link rel="stylesheet" href="/src/style.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="wordmark" href="#top" aria-label="GambitNet home"><span>♟</span> GAMBITNET</a>
+			<nav aria-label="Main navigation">
+				<a href="#missions">Learn with it</a>
+				<a href="#how-it-works">How it works</a>
+				<a href="#developers">Developers</a>
+			</nav>
+			<a class="header-link" href="https://github.com/chadsteele/gambitnet">View on GitHub <span aria-hidden="true">↗</span></a>
+		</header>
+
+		<main id="top">
+			<section class="hero section-shell">
+				<div class="hero-copy reveal">
+					<p class="kicker">A distributed chess laboratory</p>
+					<h1>Every pawn<br /><em>has a plan.</em></h1>
+					<p class="hero-lede">Build a team of independent chess minds. Watch them argue over the next move, learn from the result, and evolve toward their next win.</p>
+					<div class="hero-actions">
+						<a class="button button-primary" href="https://github.com/chadsteele/gambitnet#for-chess-players">Enter the arena <span>→</span></a>
+						<a class="text-link" href="https://github.com/chadsteele/gambitnet#chess-learning-missions">Explore learning missions <span>↗</span></a>
+					</div>
+					<dl class="hero-facts">
+						<div><dt>16</dt><dd>piece minds<br />per team</dd></div>
+						<div><dt>0</dt><dd>API tokens<br />required</dd></div>
+						<div><dt>3–10</dt><dd>qualification<br />range</dd></div>
+					</dl>
+				</div>
+
+				<div class="arena-card reveal" aria-label="Illustration of a live GambitNet arena">
+					<div class="arena-topline"><span><i class="live-dot"></i> LIVE ARENA</span><span id="turn-label">TURN 18 · WHITE TO MOVE</span></div>
+					<div class="board-wrap">
+						<div class="board" id="board" aria-hidden="true">
+							<span class="piece black rook">♜</span><span class="piece black">♞</span><span class="piece black">♝</span><span class="piece black">♛</span><span class="piece black">♚</span><span class="piece black">♝</span><span class="piece black">♞</span><span class="piece black">♜</span>
+							<span class="piece black">♟</span><span class="piece black">♟</span><span class="piece black">♟</span><span class="piece black">♟</span><span class="piece black">♟</span><span class="piece black">♟</span><span class="piece black">♟</span><span class="piece black">♟</span>
+							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+							<span class="piece white">♙</span><span class="piece white">♙</span><span class="piece white">♙</span><span class="piece white">♙</span><span class="piece white">♙</span><span class="piece white">♙</span><span class="piece white">♙</span><span class="piece white">♙</span>
+							<span class="piece white">♖</span><span class="piece white">♘</span><span class="piece white">♗</span><span class="piece white">♕</span><span class="piece white">♔</span><span class="piece white">♗</span><span class="piece white">♘</span><span class="piece white">♖</span>
+						</div>
+					</div>
+					<div class="arena-footer"><div><strong id="motivation-value">78</strong><span>motivation</span></div><div class="agent-name"><span class="agent-mark">♘</span><span><b id="agent-name">Knight at g1</b><small id="agent-reason">“The center is asking a question.”</small></span></div><span class="signal">● thinking</span></div>
+				</div>
+			</section>
+
+			<section class="proof-band"><div class="section-shell proof-grid"><p><span>01</span> No cloud account</p><p><span>02</span> Browser-first AI</p><p><span>03</span> Legal moves guaranteed</p><p><span>04</span> Learn by watching</p></div></section>
+
+			<section class="story section-shell" id="how-it-works">
+				<div class="section-intro reveal"><p class="kicker">The idea</p><h2>Chess gets more interesting when every piece has a voice.</h2></div>
+				<div class="story-grid"><p class="large-copy reveal">GambitNet turns a team into a conversation. Your queen may see danger, your knight may smell a tactic, and your pawns may quietly build the future. They each remember what happened last time.</p><div class="rule-list reveal"><div><span>01</span><p><b>Pieces motivate</b><br />Each piece makes a case for why this moment matters.</p></div><div><span>02</span><p><b>Teams survive</b><br />Winning contexts continue. Losing teams reset and try again.</p></div><div><span>03</span><p><b>Players notice</b><br />Every match becomes a prompt to pause, predict, and learn.</p></div></div></div>
+			</section>
+
+			<section class="missions-band" id="missions"><div class="section-shell missions"><div class="section-intro reveal"><p class="kicker">Practice, not passive play</p><h2>Bring a question<br /><em>to the board.</em></h2><p>Short missions turn spectating into chess practice. Pick one before your next game.</p></div><div class="mission-grid"><article class="mission-card reveal"><span class="mission-number">01</span><h3>Opening scout</h3><p>Watch ten moves. Name the moments of center control, development, and king safety.</p><a href="https://github.com/chadsteele/gambitnet/blob/main/docs/CHESS_EDUCATION.md">Try the mission ↗</a></article><article class="mission-card highlighted reveal"><span class="mission-number">02</span><h3>Tactical pause</h3><p>After each capture, look for checks, captures, and threats before reading the agents' reasoning.</p><a href="https://github.com/chadsteele/gambitnet#chess-learning-missions">See all missions ↗</a></article><article class="mission-card reveal"><span class="mission-number">03</span><h3>Team experiment</h3><p>Change one personality, watch three games, and write down what changed in the team.</p><a href="https://github.com/chadsteele/gambitnet/blob/main/docs/CHESS_EDUCATION.md">Study the guide ↗</a></article></div></div></section>
+
+			<section class="qualification section-shell"><div class="qualification-copy reveal"><p class="kicker">Your rules, your rivalry</p><h2>Choose what<br /><em>counts as momentum.</em></h2><p>Configure the path to a peer tournament. A team can qualify with 3 of 3, 4 of 5, 5 of 6, and more, all the way to 10 games.</p><a class="text-link" href="https://github.com/chadsteele/gambitnet#what-does-qualification-mean">Read the rules <span>↗</span></a></div><div class="score-card reveal"><div class="score-head"><span>QUALIFICATION WINDOW</span><span>LOCAL ARENA</span></div><div class="score-big"><strong>4</strong><span>of</span><strong>5</strong></div><div class="score-row"><span class="win">W</span><span class="win">W</span><span class="loss">L</span><span class="win">W</span><span class="win">W</span></div><p><b>Momentum found.</b> This team is ready to meet a new opponent.</p></div></section>
+
+			<section class="developer-band" id="developers"><div class="section-shell developer"><div><p class="kicker">Open source, open board</p><h2>Build the laboratory<br /><em>with us.</em></h2></div><div><p>GambitNet is a TypeScript monorepo with a chess rules core, piece-agent runtime, Web Workers, and a peer-to-peer path. Start with the code, or start with a question.</p><a class="button button-light" href="https://github.com/chadsteele/gambitnet#for-developers">Read the developer guide <span>→</span></a></div></div></section>
+		</main>
+
+		<footer class="site-footer section-shell"><a class="wordmark" href="#top"><span>♟</span> GAMBITNET</a><p>Every pawn has a plan.</p><div><a href="https://github.com/chadsteele/gambitnet">GitHub ↗</a><a href="https://github.com/chadsteele/gambitnet/blob/main/LICENSE">MIT License</a></div></footer>
+		<script type="module" src="/src/main.js"></script>
+	</body>
+</html>

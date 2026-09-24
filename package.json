@@ -8,6 +8,7 @@
   "scripts": {
     "build": "pnpm build:packages && pnpm --filter @gambitnet/extension build",
     "build:packages": "pnpm -r --filter './packages/*' build",
+    "build:site": "pnpm --filter @gambitnet/dashboard-site build",
     "dev": "pnpm --filter @gambitnet/extension dev",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "vitest run",

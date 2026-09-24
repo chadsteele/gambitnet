@@ -47,6 +47,9 @@ importers:
       '@gambitnet/chess-core':
         specifier: workspace:*
         version: link:../../packages/chess-core
+      '@gambitnet/evolution':
+        specifier: workspace:*
+        version: link:../../packages/evolution
       '@gambitnet/piece-agent':
         specifier: workspace:*
         version: link:../../packages/piece-agent

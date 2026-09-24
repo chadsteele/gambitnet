@@ -1,1 +1,1 @@
-{"name":"@gambitnet/dashboard-site","version":"0.1.0","private":true,"scripts":{"dev":"vite --host 0.0.0.0"},"devDependencies":{"vite":"^6.0.5"}}
+{"name":"@gambitnet/dashboard-site","version":"0.1.0","private":true,"scripts":{"dev":"vite --host 0.0.0.0","build":"vite build"},"devDependencies":{"vite":"^6.0.5"}}
