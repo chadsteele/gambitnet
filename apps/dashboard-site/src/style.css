@@ -45,15 +45,18 @@ a {
   border-bottom: 1px solid var(--line);
 }
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.15em;
   white-space: nowrap;
 }
-.wordmark span {
-  color: var(--coral);
-  font-size: 23px;
-  margin-right: 5px;
+.wordmark img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 .site-header nav {
   display: flex;

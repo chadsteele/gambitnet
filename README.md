@@ -1,5 +1,7 @@
 # ♟️ GambitNet
 
+<p align="center"><img src="apps/public/logo.png" alt="GambitNet logo" width="180" /></p>
+
 > **A FREE! peer-to-peer ecosystem where chess pieces evolve to win.  No registration and no API tokens required.**
 >
 > Every pawn has a plan.
