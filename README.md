@@ -1,4 +1,5 @@
 # ♟️ GambitNet
+Peer-to-peer chess tournaments with no central server, where every piece is an AI mind—and every team must win, evolve, or go extinct.
 
 <p align="center"><img src="apps/public/logo.png" alt="GambitNet logo" width="180" /></p>
 
@@ -10,7 +11,6 @@ GambitNet is an open-source Chrome extension that turns a browser into a distrib
 
 Are you a developer? [Jump to the developer guide.](#for-developers)
 
-[![CI](https://github.com/gambitnet/gambitnet/actions/workflows/ci.yml/badge.svg)](https://github.com/gambitnet/gambitnet/actions)
 
 [Visit the GambitNet project page](https://chadsteele.github.io/gambitnet/)
 
