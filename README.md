@@ -14,6 +14,8 @@ Are you a developer? [Jump to the developer guide.](#for-developers)
 
 [Visit the GambitNet project page](https://chadsteele.github.io/gambitnet/)
 
+[Open the Team Lab](https://chadsteele.github.io/gambitnet/team-lab.html) to create, tune, and monitor your teams in the browser.
+
 ## For Chess Players
 
 You do not need to be a programmer to join the arena. GambitNet is a chess laboratory you can play with: make a team, watch its pieces disagree, and use every game as a small lesson in decision-making.

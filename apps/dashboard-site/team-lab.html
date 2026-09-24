@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Create, tune, and monitor GambitNet chess teams." />
+    <meta name="theme-color" content="#f4efe5" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GambitNet" />
+    <meta property="og:title" content="GambitNet Team Lab" />
+    <meta property="og:description" content="Create independent piece minds, tune your team, and monitor it in the GambitNet arena." />
+    <meta property="og:url" content="https://chadsteele.github.io/gambitnet/team-lab.html" />
+    <meta property="og:image" content="https://chadsteele.github.io/gambitnet/logo.png" />
+    <meta property="og:image:alt" content="GambitNet chess piece logo" />
+    <link rel="canonical" href="https://chadsteele.github.io/gambitnet/team-lab.html" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="stylesheet" href="./src/team-lab.css" />
+    <title>GambitNet Team Lab</title>
+  </head>
+  <body>
+    <header class="lab-header">
+      <a class="wordmark" href="./"><img src="./logo.png" alt="" /> GAMBITNET</a>
+      <div class="lab-header-title"><span>TEAM LAB</span><strong>Create and monitor your pieces</strong></div>
+      <a class="back-link" href="./">Back to the project page <span>↗</span></a>
+    </header>
+
+    <main class="lab-shell">
+      <section class="lab-intro">
+        <div><p class="eyebrow">Your local chess laboratory</p><h1>Give your team<br /><em>a point of view.</em></h1></div>
+        <p class="intro-copy">Tune the minds behind every move, save your team in this browser, then send it into an arena and watch its momentum grow.</p>
+      </section>
+
+      <section class="workspace">
+        <aside class="team-rail" aria-label="Saved teams">
+          <div class="rail-heading"><div><p class="eyebrow">My teams</p><h2>Lineup</h2></div><button class="icon-button" id="new-team" title="Create a new team" aria-label="Create a new team">+</button></div>
+          <div id="team-list" class="team-list"></div>
+          <div class="local-note"><span>LOCAL ONLY</span><p>Your teams stay in this browser until you share a Team Code.</p></div>
+        </aside>
+
+        <div class="builder-column">
+          <section class="panel team-settings-panel">
+            <div class="panel-header"><div><p class="eyebrow">Team identity</p><h2>Shape the collective</h2></div><span class="saved-state" id="saved-state">Saved locally</span></div>
+            <div class="identity-grid"><label>Team name<input id="team-name" maxlength="36" /></label><label>Starting style<select id="team-preset"><option value="custom">Custom lineup</option><option value="Immortal Pawns">Immortal Pawns</option><option value="Fortress">Fortress</option><option value="Tricksters">Tricksters</option></select></label></div>
+            <div class="settings-actions"><button class="button button-dark" id="save-team">Save team <span>→</span></button><button class="button button-quiet" id="share-team">Copy Team Code</button><span id="share-status" role="status"></span></div>
+          </section>
+
+          <section class="panel pieces-panel"><div class="panel-header"><div><p class="eyebrow">16 independent minds</p><h2>Piece room</h2></div><span class="panel-hint">Bias is a nudge, not a command.</span></div><div id="piece-grid" class="piece-grid"></div></section>
+
+          <section class="panel monitor-panel" id="monitor"><div class="panel-header"><div><p class="eyebrow">Arena monitor</p><h2>Watch the lineage</h2></div><button class="button button-accent" id="start-match">Start local match <span>→</span></button></div><div class="monitor-grid"><div class="metric"><span>STATUS</span><strong id="match-status">Ready</strong><small id="match-detail">Your next opponent is waiting.</small></div><div class="metric"><span>RECORD</span><strong id="record">0–0</strong><small>local arena</small></div><div class="metric"><span>STREAK</span><strong id="streak">0</strong><small>consecutive wins</small></div><div class="metric"><span>QUALIFICATION</span><strong id="qualification">0 / 3</strong><small>recent wins</small></div></div><div class="progress-track"><span id="progress-bar"></span></div><div class="match-history"><div class="history-head"><span>RECENT MATCHES</span><span>RESULT</span></div><div id="match-history-list"><p class="empty-state">No matches yet. Start one when your team is ready.</p></div></div></section>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/team-lab.js"></script>
+  </body>
+</html>
