@@ -8,7 +8,7 @@ function Dashboard() {
   const [active, setActive] = useState(0);
   useEffect(() => { const port = chrome.runtime.connect({ name: 'dashboard' }); port.onMessage.addListener((event: WorkerEvent) => { setEvents(previous => [event.type === 'progress' ? event.message : event.type, ...previous].slice(0, 8)); if (event.type === 'finished') setActive(value => Math.max(0, value - 1)); }); return () => port.disconnect(); }, []);
   const start = () => { setActive(value => value + 1); chrome.runtime.sendMessage({ type: 'game:start', gameId: crypto.randomUUID() }); };
-  return <main><header><span className="eyebrow">DISTRIBUTED CHESS LAB</span><h1>GambitNet</h1><p>Every piece has a plan.</p></header><section className="status"><strong>{active}</strong><span>active arenas</span><button onClick={start}>Start arena</button></section><section className="log"><h2>Live signal</h2>{events.length ? events.map((event, index) => <div key={`${event}-${index}`}>{event}</div>) : <p>Waiting for your first match.</p>}</section></main>;
+  return <main><header><span className="eyebrow">DISTRIBUTED CHESS LAB</span><h1>GambitNet</h1><p>Every piece has a plan.</p></header><section className="status"><strong>{active}</strong><span>active arenas</span><button onClick={start}>Start arena</button></section><a className="team-lab-link" href="https://chadsteele.github.io/gambitnet/team-lab.html" target="_blank" rel="noreferrer">Create and tune a team <span>↗</span></a><section className="log"><h2>Live signal</h2>{events.length ? events.map((event, index) => <div key={`${event}-${index}`}>{event}</div>) : <p>Waiting for your first match.</p>}</section></main>;
 }
 
 createRoot(document.getElementById('root')!).render(<Dashboard />);
