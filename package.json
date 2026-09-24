@@ -1,0 +1,27 @@
+{
+  "name": "gambitnet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A peer-to-peer ecosystem where chess pieces evolve to win.",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "build": "pnpm build:packages && pnpm --filter @gambitnet/extension build",
+    "build:packages": "pnpm -r --filter './packages/*' build",
+    "dev": "pnpm --filter @gambitnet/extension dev",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "signaling": "pnpm --filter @gambitnet/signaling-server dev"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.270",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

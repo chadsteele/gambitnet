@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "GambitNet",
+  "version": "0.1.0",
+  "description": "A peer-to-peer ecosystem where chess pieces evolve to win.",
+  "permissions": ["storage", "unlimitedStorage", "tabs", "scripting", "offscreen"],
+  "host_permissions": ["https://gemini.google.com/*", "https://claude.ai/*", "https://chatgpt.com/*", "https://chat.qwen.ai/*", "https://chat.deepseek.com/*"],
+  "background": { "service_worker": "src/background/service-worker.ts", "type": "module" },
+  "action": { "default_title": "Open GambitNet", "default_popup": "src/popup/index.html" },
+  "options_page": "src/settings/index.html",
+  "content_scripts": [{ "matches": ["https://gemini.google.com/*", "https://claude.ai/*", "https://chatgpt.com/*", "https://chat.qwen.ai/*", "https://chat.deepseek.com/*"], "js": ["src/content/llm-bridge.ts"], "run_at": "document_idle" }],
+  "web_accessible_resources": [{ "resources": ["src/offscreen/orchestrator.html"], "matches": ["<all_urls>"] }]
+}

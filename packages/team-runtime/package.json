@@ -1,0 +1,1 @@
+{"name":"@gambitnet/team-runtime","version":"0.1.0","private":true,"type":"module","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc --outDir dist --declaration"},"dependencies":{"@gambitnet/chess-core":"workspace:*","@gambitnet/piece-agent":"workspace:*","@gambitnet/shared-types":"workspace:*"}}

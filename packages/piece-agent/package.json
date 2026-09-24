@@ -1,0 +1,1 @@
+{"name":"@gambitnet/piece-agent","version":"0.1.0","private":true,"type":"module","main":"dist/PieceAgent.js","types":"dist/PieceAgent.d.ts","scripts":{"build":"tsc --outDir dist --declaration"},"dependencies":{"@gambitnet/shared-types":"workspace:*"}}
